@@ -11,4 +11,4 @@ $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 This will create a new SSH key in the default file location.
 
-3. When prompted to enter a passphrase, press enter to leave the SSH key without a passphrase. In practice, most SSH keys are without a passphrase. If you would like to add one to yours, feel free to read more [here][https://www.ssh.com/ssh/passphrase].
+3. When prompted to enter a passphrase, press enter to leave the SSH key without a passphrase. In practice, most SSH keys are without a passphrase. If you would like to add one to yours, feel free to read more [here](https://www.ssh.com/ssh/passphrase).
