@@ -25,5 +25,5 @@ Most newer Macs will be using an Operating System newer than MacOS 10.12.2. Ther
 
 2. To travel to the hidden ssh directory paste the following into terminal.
 ```bash
-cd ~/.ssh
+$ cd ~/.ssh
 ```
