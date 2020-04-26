@@ -5,7 +5,7 @@ This repository will give instructions on how to create an SSH key, link it to G
 
 1. Open Terminal
 
-2. Paste the text after the $ symbol into the console replacing your email in the quotes:
+2. Paste the following text after the $ symbol into the console replacing your email in the quotes:
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
@@ -21,9 +21,21 @@ $ eval "$(ssh-agent -s)"
 > Agent pid 59566
 ```
 
-Most newer Macs will be using an Operating System newer than MacOS 10.12.2. Therefore, you will need to modify your `config` file in `~/.ssh/config`.
+Most newer Macs will be using an Operating System newer than MacOS 10.12.2. Therefore, you will need to modify your `config` file in the `~/.ssh/config` directory.
 
-2. To travel to the hidden ssh directory paste the following into terminal.
+2. To travel to the *hidden* ssh directory paste the following into terminal.
 ```bash
 $ cd ~/.ssh
 ```
+
+3. After travelling to the ssh directory, check to see if a `config` file exists in the directory by typing the following:
+```bash
+$ ls
+```
+
+\*If a config file exists in the ssh directory, open it in your favorite text editor by entering the following and replacing your preferred app in the quotes. 
+```bash
+$ open -a 'Application name' config
+```
+
+*Note that the application's name must be its exact name. For example, to open in Sublime text editor, enter 'Sublime Text'*
