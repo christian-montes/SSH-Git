@@ -2,15 +2,23 @@
 This repository will give instructions on how to create an SSH key, link it to your GitHub accout, and how to expedite the process of making commits to your remote repository on Mac.
 
 ### Creating an SSH Key
+----
 
 1. Open Terminal
 
-2. Paste the following text after the $ symbol into the console replacing your GitHub email in the quotes. You can find your primary GitHub email by traveling to your Personal settings -> Emails. This will create a new SSH key in the default file location.
+2. Paste the following text after the $ symbol into the console replacing your GitHub email in the quotes. You can find your primary GitHub email by following these steps:
+<ol>
+	<li>Click on your profile photo in the top-right corner of any page</li>
+	<li>Select settings</li>
+	<li>Select 'Emails' from the menu on the left</li>
+</ol>
+Your primary email address will have a green 'primary' tag on it.
+
 ```bash
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
-3. When prompted to enter a passphrase, press enter to leave the SSH key without a passphrase. In practice, most SSH keys are without a passphrase. If you would like to add one to yours, feel free to read more [here](https://www.ssh.com/ssh/passphrase).
+3. When prompted to enter a passphrase, press enter to leave the SSH key without a passphrase. In practice, most SSH keys are without a passphrase. If you would like to add one to yours, feel free to read more here: [SSH passphrases](https://www.ssh.com/ssh/passphrase).
 
 ### Adding SSH Key to the ssh-agent.
 
