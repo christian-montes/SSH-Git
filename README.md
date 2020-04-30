@@ -1,6 +1,8 @@
 # SSH-Git
 This repository will give instructions on how to create an SSH key, link it to your GitHub accout, and how to expedite the process of making commits to your remote repository on Mac.
 
+> Note: The following instructions are an edited version of those found on [Github](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) that include extra steps that are skipped on the page and instructions on how to create a `.bash_profile` to speed up the process of making commits to your remote repo.
+
 ### Creating an SSH Key
 ---
 
@@ -42,6 +44,7 @@ $ ls
 ```
 This will list all the files present in the current directory. Make sure that a file called `id_rsa.pub` exists in the directory. This is your SSH key.
 
+<br>
 
 * If a config file does does not exist in the directory, you will need to create one. Create one by entering the following into your terminal:
 ```bash
@@ -77,7 +80,7 @@ $ ssh-add -K ~/.ssh/id_rsa
 $ open -a 'Application name' id_rsa.pub
 ```
 
-2. Go to your SSH key settings by:
+2. Go to your SSH key settings:
 	<ol>
 		<li>Click on your profile photo in the top-right corner of any page</li>
 		<li>Select settings</li>
@@ -90,12 +93,45 @@ $ open -a 'Application name' id_rsa.pub
 
 5. Click __Add SSH key__ and enter your password if prompted.
 
-> Your SSH key should now be added to your GitHub account. Verify that the SSH key is in the __SSH and GPG keys__ settings.
+### Testing connection
+
+Your SSH key should now be added to your GitHub account. Verify that the SSH key is linked to your account by testing your connection.
+
+1. Enter the following in terminal that attempts to ssh to GitHub
+```bash
+$ ssh -T git@github.com
+```
+
+This will lead to one of two following warnings showing up:
+```
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+> Are you sure you want to continue connecting (yes/no)?
+```
+
+or
+```
+> The authenticity of host 'github.com (IP ADDRESS)' can't be established.
+> RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
+> Are you sure you want to continue connecting (yes/no)?
+```
+
+2. Make sure that the warning that shows up matches on of the two above and type 'yes'.
+
+3. A message like the one below should come up if everything went well.
+```
+> Hi username! You've successfully authenticated, but GitHub does not
+> provide shell access.
+```
+
+Make sure that your username is contained in the message.
 
 ### Creating .bash_profile to make commits quicker
 ---
 
-To expedite the process of making commits to your remote repository, you will write a function within a `.bash_profile` that can be accessed from any directory you are working in. This `.bash_profile` will exist in your home directory- this will allow access from any directory.
+To expedite the process of making commits to your remote repository, you will append a function to a `.bash_profile`. This `.bash_profile` will exist in your home directory- this will allow access from any working directory.
+
+> Note: These instructions are an edited version of instructions on how to create a `.bash_profile` that can be found here: [Redfin Solutions](https://redfinsolutions.com/blog/creating-bashprofile-your-mac 'Creatng a .bash_profile')
 
 1. Enter the following into terminal to travel to your home directory:
 ```bash
@@ -112,7 +148,9 @@ $ touch .bash_profile
 $ open -a 'App name' .bash_profile
 ```
 
-4. Skip a few lines at the end of the file. This is where you will write your function to make the process of committing quicker. Adding a function to the `.bash_profile` allows you to pass arguments to the function. Below is the function 'easygit' that I added to mine. Feel free to name your function whatever you please.
+4. Skip a few lines at the end of the file. This is where you will write your function to make the process of committing quicker. 
+
+Adding a function to the `.bash_profile` allows you to pass arguments to the function. Below is the function 'easygit' that I added to mine. Feel free to name your function anything you please. The first argument accepted by the function, "$1", is the commit message; the second argument, "$2", is the SSH URL of the repository.
 
 ```
 function easygit() {
@@ -127,8 +165,16 @@ This function allows you to pass a custom message for every commit as well as th
 $ easygit 'Commit message' 'git@github.com:username/repo-name.git'
 ```
 
-For other solutions that do not involve making a function in your `.bash_profile`, check out the following page in Stack Overflow where I found the solution I used: [Stack Overflow](https://stackoverflow.com/questions/19595067/git-add-commit-and-push-commands-in-one 'Git add, commit, and push in one line').
+> For other solutions that do not involve making a function in your `.bash_profile`, check out the following page in Stack Overflow where I found the solution I used: [Stack Overflow](https://stackoverflow.com/questions/19595067/git-add-commit-and-push-commands-in-one 'Git add, commit, and push in one line').
 
+5. After adding your function to your `.bash_profile`, save all changes and close the file.
+
+6. Finally, paste the following into terminal to reload the profile and update any functions that were added.
+```bash
+$ . .bash_profile
+```
+
+You are now ready to make quicker commits using terminal.
 
 
 
