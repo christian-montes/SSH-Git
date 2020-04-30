@@ -71,6 +71,28 @@ $ ssh-add -K ~/.ssh/id_rsa
 
 ### Adding your SSH key to your GitHub account
 
+1. Open your public SSH key and copy the contents to your clipboard:
+```bash
+$ open -a 'Application name' id_rsa.pub
+```
+
+2. Go to your SSH key settings by:
+	<ol>
+		<li>Click on your profile photo in the top-right corner of any page</li>
+		<li>Select settings</li>
+		<li>Select 'SSH and GPG keys' from the menu on the left</li>
+	</ol>
+
+3. Click __New SSH key__ or __Add SSH key__.
+
+4. Add a description of your key in the _Title_ field and paste your SSH key into the _Key_ field.
+
+5. Click __Add SSH key__ and enter your password if prompted.
+
+Your SSH key should now be added to your GitHub account. Verify that the SSH key is in the __SSH and GPG keys__ settings.
+
+### Creating .bash_profile to make commits quicker
+
 
 
 
