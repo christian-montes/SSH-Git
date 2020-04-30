@@ -70,6 +70,7 @@ $ ssh-add -K ~/.ssh/id_rsa
 ```
 
 ### Adding your SSH key to your GitHub account
+---
 
 1. Open your public SSH key and copy the contents to your clipboard:
 ```bash
@@ -89,10 +90,44 @@ $ open -a 'Application name' id_rsa.pub
 
 5. Click __Add SSH key__ and enter your password if prompted.
 
-Your SSH key should now be added to your GitHub account. Verify that the SSH key is in the __SSH and GPG keys__ settings.
+> Your SSH key should now be added to your GitHub account. Verify that the SSH key is in the __SSH and GPG keys__ settings.
 
 ### Creating .bash_profile to make commits quicker
+---
 
+To expedite the process of making commits to your remote repository, you will write a function within a `.bash_profile` that can be accessed from any directory you are working in. This `.bash_profile` will exist in your home directory- this will allow access from any directory.
+
+1. Enter the following into terminal to travel to your home directory:
+```bash
+$ cd ~
+```
+
+2. Create a `.bash_profile` by using the touch command
+```bash
+$ touch .bash_profile
+```
+
+3. Open your `.bash_profile` in a text editor by entering the following. Replace the editor's name in the quotes
+```bash
+$ open -a 'App name' .bash_profile
+```
+
+4. Skip a few lines at the end of the file. This is where you will write your function to make the process of committing quicker. Adding a function to the `.bash_profile` allows you to pass arguments to the function. Below is the function 'easygit' that I added to mine. Feel free to name your function whatever you please.
+
+```
+function easygit() {
+    git add .
+    git commit -a -m "$1"
+    git push "$2"
+}
+```
+
+This function allows you to pass a custom message for every commit as well as the remote repo where the changes will be going. This can be done in terminal as follows:
+```bash
+$ easygit 'Commit message' 'git@github.com:username/repo-name.git'
+```
+
+For other solutions that do not involve making a function in your `.bash_profile`, check out the following page in Stack Overflow where I found the solution I used: [Stack Overflow](https://stackoverflow.com/questions/19595067/git-add-commit-and-push-commands-in-one 'Git add, commit, and push in one line').
 
 
 
