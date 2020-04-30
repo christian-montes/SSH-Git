@@ -120,7 +120,7 @@ or
 
 3. A message like the one below should come up if everything went well.
 ```
-> Hi username! You've successfully authenticated, but GitHub does not
+> Hi christian-montes! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
