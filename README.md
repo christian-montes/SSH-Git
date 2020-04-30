@@ -1,7 +1,7 @@
 # SSH-Git
 This repository will give instructions on how to create an SSH key, link it to your GitHub accout, and how to expedite the process of making commits to your remote repository on Mac.
 
-> Note: The following instructions are an edited version of those found on [Github](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) that include extra steps that are skipped on the page and instructions on how to create a `.bash_profile` to speed up the process of making commits to your remote repo.
+> Note: The following instructions are an edited version of those found on [Github](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) that include extra steps that are skipped on the page and instructions on how to create a .bash_profile to speed up the process of making commits to your remote repo.
 
 ### Creating an SSH Key
 ---
@@ -129,28 +129,28 @@ Make sure that your username is contained in the message.
 ### Creating .bash_profile to make commits quicker
 ---
 
-To expedite the process of making commits to your remote repository, you will append a function to a `.bash_profile`. This `.bash_profile` will exist in your home directory- this will allow access from any working directory.
+To expedite the process of making commits to your remote repository, you will append a function to a .bash_profile. This .bash_profile will exist in your home directory- this will allow access from any working directory.
 
-> Note: These instructions are an edited version of instructions on how to create a `.bash_profile` that can be found here: [Redfin Solutions](https://redfinsolutions.com/blog/creating-bashprofile-your-mac 'Creatng a .bash_profile')
+> Note: These instructions are an edited version of instructions on how to create a .bash_profile that can be found here: [Redfin Solutions](https://redfinsolutions.com/blog/creating-bashprofile-your-mac 'Creatng a .bash_profile')
 
 1. Enter the following into terminal to travel to your home directory:
 ```bash
 $ cd ~
 ```
 
-2. Create a `.bash_profile` by using the touch command
+2. Create a .bash_profile by using the touch command
 ```bash
 $ touch .bash_profile
 ```
 
-3. Open your `.bash_profile` in a text editor by entering the following. Replace the editor's name in the quotes
+3. Open your .bash_profile in a text editor by entering the following. Replace the editor's name in the quotes
 ```bash
 $ open -a 'App name' .bash_profile
 ```
 
 4. Skip a few lines at the end of the file. This is where you will write your function to make the process of committing quicker. 
 
-Adding a function to the `.bash_profile` allows you to pass arguments to the function. Below is the function 'easygit' that I added to mine. Feel free to name your function anything you please. The first argument accepted by the function, "$1", is the commit message; the second argument, "$2", is the SSH URL of the repository.
+Adding a function to the .bash_profile allows you to pass arguments to the function. Below is the function 'easygit' that I added to mine. Feel free to name your function anything you please. The first argument accepted by the function, "$1", is the commit message; the second argument, "$2", is the SSH URL of the repository.
 
 ```
 function easygit() {
@@ -165,9 +165,9 @@ This function allows you to pass a custom message for every commit as well as th
 $ easygit 'Commit message' 'git@github.com:username/repo-name.git'
 ```
 
-> For other solutions that do not involve making a function in your `.bash_profile`, check out the following page in Stack Overflow where I found the solution I used: [Stack Overflow](https://stackoverflow.com/questions/19595067/git-add-commit-and-push-commands-in-one 'Git add, commit, and push in one line').
+> For other solutions that do not involve making a function in your .bash_profile, check out the following page in Stack Overflow where I found the solution I used: [Stack Overflow](https://stackoverflow.com/questions/19595067/git-add-commit-and-push-commands-in-one 'Git add, commit, and push in one line').
 
-5. After adding your function to your `.bash_profile`, save all changes and close the file.
+5. After adding your function to your .bash_profile, save all changes and close the file.
 
 6. Finally, paste the following into terminal to reload the profile and update any functions that were added.
 ```bash
